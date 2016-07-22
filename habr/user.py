@@ -186,7 +186,7 @@ class TMUser(object):
         doc = html.document_fromstring(requests.get(url).text)
         out = dict()
         pages = get_pages(doc)
-        favs = doc.xpath("//div[@class='user_favorites']//a[@class='post_title']")
+        favs = doc.xpath("//div[@class='user_favorites']//a[@class='post__title_link']")
         for f in favs:
             # out[f.text] = str(f.attrib['href']).split('/')[-2]
             # topic_id =
@@ -196,7 +196,7 @@ class TMUser(object):
             # if show_progress:
             # print('parsing page{0}... url={1}'.format(p, url))
             doc = html.document_fromstring(requests.get(url).text)
-            favs = doc.xpath("//div[@class='user_favorites']//a[@class='post_title']")
+            favs = doc.xpath("//div[@class='user_favorites']//a[@class='post__title_link']")
             for f in favs:
                 # out[f.text] = f.attrib['href'][-7:-1]
                 out[f.text] = str(f.attrib['href']).split('/')[-2]
@@ -210,7 +210,7 @@ class TMUser(object):
         doc = html.document_fromstring(req.text)
         out = dict()
         pages = get_pages(doc)
-        posts = doc.xpath("//div[@class='posts_list']//a[@class='post_title']")
+        posts = doc.xpath("//div[@class='posts_list']//a[@class='post__title_link']")
         for f in posts:
             # print(f.text)
             out[f.text] = str(f.attrib['href']).split('/')[-2]
@@ -221,7 +221,7 @@ class TMUser(object):
             if req.status_code != 200:
                 raise IOError('doc not found. URL = {}'.format(url))
             doc = html.document_fromstring(req.text)
-            posts = doc.xpath("//div[@class='posts_list']//a[@class='post_title']")
+            posts = doc.xpath("//div[@class='posts_list']//a[@class='post__title_link']")
             for f in posts:
                 out[f.text] = str(f.attrib['href']).split('/')[-2]
         return out
