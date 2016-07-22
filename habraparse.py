@@ -54,7 +54,7 @@ def prepare_html(topic, with_comments=False):
     <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta charset="UTF-8">
-    <link href="http://habrahabr.ru/styles/1412005750/assets/post_common_css.css" rel="stylesheet" media="all" />
+    <<link href="http://habracdn.net/habr/styles/1469028327/_build/global_main.css" rel="stylesheet" media="all" />
     <title>{title}</title>
     </head>
     <body>
@@ -138,7 +138,7 @@ def save_pdf(topic_id: int, filename: str, with_comments: bool = False, project:
         ht = HabraTopic(topic_id)
 
     html = prepare_html(ht, with_comments=with_comments)
-    css = CSS(string='@page { size: A4; margin: 1cm !important}')
+    css = CSS(string='@page { size: A4 landscape; margin: 1cm !important}')
     HTML(string=html).write_pdf(filename, stylesheets=[css])
 
 
