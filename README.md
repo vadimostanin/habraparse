@@ -32,3 +32,11 @@ Changelog:
 
 Распространяется по лицензии GNU GPL v2.0.
 Under license GNU GPL v2.0
+
+
+Changelog:
+*22.07.2016*
+- исправлены ошибки при сохранении "Изранного"
+
+Распространяется по лицензии GNU GPL v2.0.
+Under license GNU GPL v2.0
