@@ -183,7 +183,9 @@ class TMUser(object):
             dict(name) = id
         """
         url = self._genFavoritesUrlByUser(self._username)
-        doc = html.document_fromstring(requests.get(url).text)
+        resp = requests.get(url)
+        doc = html.document_fromstring(resp.text)
+        resp.close()
         out = dict()
         pages = get_pages(doc)
         favs = doc.xpath("//div[@class='user_favorites']//a[@class='post__title_link']")
